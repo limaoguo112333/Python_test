@@ -1,5 +1,6 @@
 # -*- coding: gbk -*-
 #第 0000 题： 将你的 QQ 头像（或者微博头像）右上角加上红色的数字，类似于微信未读信息数量那种提示效果。 类似于图中效果
+#所用图片：https://github.com/limaoguo112333/Python_test/blob/main/res/1506425.gif
 
 from PIL import Image, ImageDraw, ImageFont
 import random
