@@ -13,7 +13,8 @@ def letters_num(file):
     
     with open (file, 'rt', encoding = 'utf-8') as f:    #rt模式打开文件，由于有的英文文档里会出现中文符号，故使用utf-8编码打开，否则有乱码
         for line in f.readlines():  #读取文本并按行处理
-            letters_line = re.split(r'[,;\s"“”:]|\.\s|\u200b', line)    #多种分隔符分割，并去除\u200b
+            #多种分隔符分割，并去除\u200b，这里本来是用[^a-zA-Z]匹配的，但是发现如it's还有A.O.C.这种也会被分割
+            letters_line = re.split(r'[,;\s"“”:]|\.\s|\u200b', line)
             for letter in letters_line:
                 if letter in letter_list:   #统计单词数量
                     letter_list[letter] += 1
