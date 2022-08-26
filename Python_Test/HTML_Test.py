@@ -15,9 +15,18 @@ def search_html(html_path):
         soup = BeautifulSoup(html_note, 'html.parser')  #解析html文件
         print(soup.title)
         #print(soup.p)  #p标签内容
-        urls = soup.find_all('a')
-        for u in urls:
-            print(u['href'])    #href属性用于指定超链接目标的url
+        for u in soup.find_all('a'):
+            hrefs = u.get('href')
+            if hrefs:
+                print(hrefs)    #href属性用于指定超链接目标的url
+        for u in soup.find_all('link'):
+            hrefs = u.get('href')
+            if hrefs:
+                print(hrefs)
+        for u in soup.find_all('script'):
+            srcs = u.get('src')
+            if srcs:
+                print(srcs)
         print(soup.find_all('body'))    #输出正文
         #print(soup.get_text)   #输出全文
 
